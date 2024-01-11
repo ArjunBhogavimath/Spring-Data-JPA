@@ -42,7 +42,11 @@ public class Student {
     private String emailId;
 
     //The student table is linked with guardian table so add guardian properties as well
-    private String guardianName;
-    private String guardianEmail;
-    private String guardianMobile;
+    //Commenting this because we create new class for guardian and embedded them to student table
+//    private String guardianName;
+//    private String guardianEmail;
+//    private String guardianMobile;
+
+    @Embedded
+    private Guardian guardian;
 }
