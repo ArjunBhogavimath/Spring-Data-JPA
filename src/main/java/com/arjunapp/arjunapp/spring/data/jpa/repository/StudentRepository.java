@@ -1,7 +1,9 @@
 package com.arjunapp.arjunapp.spring.data.jpa.repository;
 
 import com.arjunapp.arjunapp.spring.data.jpa.entity.Student;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -39,6 +41,14 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
             nativeQuery = true
     )
     Student getStudentByEmailAddressNativeNamedParam(@Param("emailId") String emailId);
+
+    @Modifying //This will be used to modify the table
+    @Transactional //after the particular operation completed The commit happens to DB
+    @Query(
+            value = "update students_tbl set first_name = ?1 where email_address = ?2",
+            nativeQuery = true
+    )
+    int updateStudentNameByEmailId(String firstName, String emailId);
 
 }
 
