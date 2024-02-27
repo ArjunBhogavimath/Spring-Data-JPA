@@ -1,16 +1,14 @@
 package com.arjunapp.arjunapp.spring.data.jpa.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(exclude = "course")
 public class CourseMaterial {
 
     @Id
@@ -27,7 +25,8 @@ public class CourseMaterial {
     private String url;
 
     @OneToOne (
-            cascade = CascadeType.ALL
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
     )// the course material cannot be alone, that should have Course table
     @JoinColumn(
             name = "course_id",
