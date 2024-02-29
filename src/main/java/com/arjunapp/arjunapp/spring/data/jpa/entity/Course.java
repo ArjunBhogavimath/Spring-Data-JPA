@@ -27,4 +27,10 @@ public class Course {
     private Long courseId;
     private String title;
     private Integer credit;
+
+    //this course doesnt have relation with coursematerial only coursematerial has that
+    @OneToOne(
+            mappedBy = "course"
+    ) //This shows onetoone mapping is already done in CourseMaterial class. so I'm just mentioning it here
+    private CourseMaterial courseMaterial;
 }
