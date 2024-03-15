@@ -26,7 +26,8 @@ public class CourseMaterial {
 
     @OneToOne (
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            optional = false
     )// the course material cannot be alone, that should have Course table
     @JoinColumn(
             name = "course_id",
