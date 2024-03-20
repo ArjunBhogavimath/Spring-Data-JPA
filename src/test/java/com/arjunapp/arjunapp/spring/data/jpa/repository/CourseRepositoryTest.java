@@ -35,5 +35,6 @@ class CourseRepositoryTest {
                 .teacher(teacher)
                 .build();
 
+        courseRepository.save(course);
     }
 }
