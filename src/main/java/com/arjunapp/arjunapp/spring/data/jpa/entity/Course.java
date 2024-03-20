@@ -33,4 +33,13 @@ public class Course {
             mappedBy = "course"
     ) //This shows onetoone mapping is already done in CourseMaterial class. so I'm just mentioning it here
     private CourseMaterial courseMaterial;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private Teacher teacher;
 }

@@ -29,7 +29,8 @@ public class Teacher {
     private String firstName;
     private String lastName;
 
-
+    /*
+    need to reverse this to manytoone relationship
     @OneToMany(
             cascade = CascadeType.ALL
     )
@@ -40,4 +41,6 @@ public class Teacher {
     //by this joincolumn new foreign column in course table will be created
     //teacher and course table will be connected
     private List<Course> courses;
+
+    */
 }

@@ -20,12 +20,12 @@ class CourseMaterialRepositoryTest {
    @Test
    public void saveCourseMaterial(){
        Course course = Course.builder()
-               .title("DSA")
-               .credit(5)
+               .title(".NET")
+               .credit(50)
                .build();
 
        CourseMaterial courseMaterial = CourseMaterial.builder()
-               .url("www.randomurl.com")
+               .url("www.oneToMany.com")
                .course(course)
                .build();
 
